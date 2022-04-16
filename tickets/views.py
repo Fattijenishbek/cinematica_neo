@@ -94,13 +94,11 @@ class TicketTypeDetailView(generics.RetrieveUpdateDestroyAPIView):
 
 class ClubCardView(generics.ListCreateAPIView):
     serializer_class = ClubCardSerializer
-    #permission_classes = [IsAuthenticated, ]
     queryset = ClubCard.objects.all()
 
 
 class ClubCardDetailView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ClubCardSerializer
-    #permission_classes = [IsAuthenticated, ]
     queryset = ClubCard.objects.all()
 
 

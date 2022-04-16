@@ -35,7 +35,7 @@ class CinemasDetailView(generics.RetrieveUpdateDestroyAPIView):
 
 class MovieView(generics.ListCreateAPIView):
     serializer_class = MovieSerializer
-    queryset = Movie.objects.filter(ending_of_movie__gt=datetime.date.today())
+    queryset = Movie.objects.filter(ending_of_movie__gt=datetime.datetime.now())
 
 
 class MovieDetailView(generics.RetrieveUpdateDestroyAPIView):

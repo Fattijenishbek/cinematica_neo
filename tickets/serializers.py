@@ -53,14 +53,9 @@ class OrdersSerializer(serializers.ModelSerializer):
     @staticmethod
     def get_total_price(obj):
         tickets = Tickets.objects.filter(orders=obj.id)
-        card = ClubCard.objects.filter(user=obj.user)
-        print(card)
         total_price = 0
         for ticket in tickets:
-            for cards in card:
-                if cards.discount == 7:
-                    total_price += (ticket.price - ((ticket.price*cards.discount)//100))
-                total_price += ticket.price
+            total_price += ticket.price
         return total_price
 
 
