@@ -14,6 +14,9 @@ class Seats(models.Model):
     number_of_row = models.IntegerField()
     rooms = models.ForeignKey(Rooms, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return f'{self.number_of_row} / {self.number_of_seat}'
+
 
 class TicketType(models.Model):
     name = models.CharField(max_length=255)
@@ -60,6 +63,9 @@ class Orders(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     total_price = models.IntegerField(blank=True, null=True)
 
+    def __str__(self):
+        return self.user
+
 
 class Feedback(models.Model):
     rates = [
@@ -80,8 +86,14 @@ class Booking(models.Model):
     seats = models.ForeignKey(Seats, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return f'{self.show_time}'
+
 
 class ClubCard(models.Model):
     balance = models.IntegerField(default=0)
     discount = models.IntegerField(default=0)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.user} / {self.discount}'
