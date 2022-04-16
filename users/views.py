@@ -2,6 +2,7 @@ from rest_framework import generics, status
 from rest_framework.exceptions import AuthenticationFailed
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework import permissions
 
 from users.models import User
 from users.serializers import (
@@ -12,6 +13,7 @@ from users.serializers import (
 
 class RegisterView(generics.GenericAPIView):
     serializer_class = UserSerializer
+    permission_classes=[permissions.AllowAny]
 
     def post(self, request):
         serializer = UserSerializer(data=request.data)
@@ -24,6 +26,7 @@ class RegisterView(generics.GenericAPIView):
 
 class LoginView(generics.GenericAPIView):
     serializer_class = LoginSerializer
+    permission_classe=[permissions.AllowAny]
 
     def post(self, request):
         email = request.data["email"]
