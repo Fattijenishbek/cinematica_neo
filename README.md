@@ -64,7 +64,7 @@ Start the development server and ensure everything is running without errors.
 ```
 $ docker-compose up
 ```
-### __7. Postman collection
+### 7. Postman collection
 https://www.postman.com/collections/81942297895da793e476
 
 
